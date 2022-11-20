@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar tailwind</title>
+    <link rel="stylesheet" href="/public/css/output.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body class="bg-gray-200 font-[poppins] text-gray-800 text-sm">
+    <!-- <nav class="p-2 bg-white md:flex md:items-center md:justify-between">
+        <div class="">
+            <span class="text-sm font-sans cursor-pointer">
+                <img class="h-8 inline" src="/img/logo.png" alt="">
+                Toko grosir
+            </span>
+            
+        </div>
+    </nav> -->
+    <!-- <span class="absolute text-4xl top-5 left-4 cursor-pointer" onclick="open()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-square"
+            viewBox="0 0 16 16">
+            <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+            <path
+                d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+        </svg>
+    </span> -->
+    <div class="flex flex-row">
+        <!-- component 1 -->
+        <div class="sidebar flex flex-col bg-white justify-between w-64">
+            <div class="text-gray-800 text-xl">
+                <div class="px-3 py-2 flex items-center">
+                    <h1 class="font-bold text-gray-800 text-2xl">TailwindBar</h1>
+                    <span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-x-lg ml-20 cursor-pointer" onclick="open()" viewBox="0 0 16 16">
+                            <path
+                                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                        </svg></span>
+                </div>
+                <!-- <hr class="my-2"> -->
+                <div
+                    class="p-2.5 mt-3 flex items-center  rounded-md px-10 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white">
+                    <div class="flex flex-row space-x-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="p-2.5 mt-3 flex items-center  rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white"
+                    onclick="dropdown()">
+                    <div class="px-2 py-2 flex items-center justify-between w-full">
+                        <span class="text-sm ml-3 font-bold">Product</span>
+                        <span class="text-sm" id="arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto" id="submenu">
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Harga</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Kategori</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Product Listing</span>
+                    </div>
+                </div>
+
+                <div class="p-2.5 mt-3 flex items-center  rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white"
+                    onclick="dropdown2()">
+                    <div class="px-2 py-2 flex items-center justify-between w-full">
+                        <span class="text-sm ml-3 font-bold">Marketing</span>
+                        <span class="text-sm" id="arrow2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto" id="submenu2">
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Banner</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Promo Produk</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Voucher</span>
+                    </div>
+                </div>
+
+                <div class="p-2.5 mt-3 flex items-center  rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white"
+                    onclick="dropdown3()">
+                    <div class="px-2 py-2 flex items-center justify-between w-full">
+                        <span class="text-sm ml-3 font-bold">Toko</span>
+                        <span class="text-sm" id="arrow3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto" id="submenu3">
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Zona</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Geofancing</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Akun Toko</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Membership Toko</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Stock</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Human Resource</span>
+                    </div>
+                </div>
+
+                <div class="p-2.5 mt-3 flex items-center  rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white"
+                    onclick="dropdown4()">
+                    <div class="px-2 py-2 flex items-center justify-between w-full">
+                        <span class="text-sm ml-3 font-bold">Driver</span>
+                        <span class="text-sm" id="arrow4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto" id="submenu4">
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Akun Driver</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Aktifitas Order</span>
+                    </div>
+                </div>
+
+                <div class="p-2.5 mt-3 flex items-center  rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white"
+                    onclick="dropdown5()">
+                    <div class="px-2 py-2 flex items-center justify-between w-full">
+                        <span class="text-sm ml-3 font-bold">Pengguna</span>
+                        <span class="text-sm" id="arrow5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto" id="submenu5">
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Akun Pengguna</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Membership Pengguna</span>
+                    </div>
+                </div>
+
+                <div class="p-2.5 mt-3 flex items-center  rounded-md px-4 duration-300 cursor-pointer hover:bg-orange-500 hover:text-white"
+                    onclick="dropdown6()">
+                    <div class="px-2 py-2 flex items-center justify-between w-full">
+                        <span class="text-sm ml-3 font-bold">Customer Service</span>
+                        <span class="text-sm" id="arrow6">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="text-left text-sm mt-2 w-4/5 mx-auto" id="submenu6">
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Komplain</span>
+                    </div>
+                    <div class="flex flex-row space-x-3 cursor pointer p-2 hover:bg-orange-500 rounded-md mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-columns" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V2zm8.5 0v8H15V2H8.5zm0 9v3H15v-3H8.5zm-1-9H1v3h6.5V2zM1 14h6.5V6H1v8z" />
+                        </svg>
+                        <span class="text-sm ml-4">Aktifitas Order</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end componen 1 -->
+        </div>
+        <!-- component 2 -->
+        <div class="flex-auto">
+            <div class="flex flex-col">
+                <div class="flex col bg-white justify-between">
+                    <div class="flex flex-row px-4">
+                        <div class="bg-gray-200
+                         w-96 my-3 mx-2 rounded-lg text-sm px-3 py-2 hover:bg-white
+                           " style="border: 1px solid rgb(226, 219, 219);">
+                            <div class="flex flex-row space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                                <input type="text" name="" id=""
+                                    class="bg-transparent rounded items-center focus:outline-none" placeholder="Search">
+                            </div>
+                        </div>
+                        <div class="flex flex-row space-x-3">
+                            <button
+                                class="my-3 mx-auto bg-sky-500 px-3.5 py-2 rounded text-white hover:bg-sky-600 active:bg-sky-700">Cari</button>
+                        </div>
+                        <div class="flex space-x-3" style=" border: 1px solid rgb(241, 238,
+                            238);">
+                            <button class="my-2.5 mx-auto bg-gray-200 px-2.5 py-2.5 text-black font-bold"
+                                style="border-radius:50%; ;">B
+                                D</button>
+                            <button>
+                                <span class="font-semibold">Dane Cooper</span>
+                                <div>
+                                    <span>Super Admin</span>
+                                </div>
+                            </button>
+                            <button class="text-sm" id="arrowLoc">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                                </svg>
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="min-h-screen bg-gray-200">
+                <div class="px-6 mt-3">
+                    <button
+                        class="my-2 bg-green-500 px-5 py-2 rounded-lg text-white mx-auto hover:bg-green-600 active:bg-green-400">Tambah
+                        Outlet</button>
+                    <button>
+
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex flex-row space-x-3 px-6 mt-2">
+                        <div
+                            class="rounded-lg shadow-lg overflow-hidden mb-10 sm:mb-0 sm:w-64 md:w-80 lg:w-72 bg-white">
+                            <div class="px-6 py-4">
+                                <div class="font-bold">Jumlah Outlet</div>
+                                <hr>
+                                <div class="font-bold">Image title</div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, magni.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="rounded-lg shadow-lg overflow-hidden mb-10 sm:mb-0 sm:w-64 md:w-80 lg:w-72 bg-white">
+                            <div class="px-6 py-4">
+                                <div class="font-bold">Jumlah Outlet</div>
+                                <hr>
+                                <table style="table-layout: auto;">
+                                    <tr>u</tr>
+                                    <tr>k</tr>
+                                </table>
+                                <div class="font-bold">Image title</div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, magni.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="rounded-lg shadow-lg overflow-hidden mb-10 sm:mb-0 sm:w-64 md:w-80 lg:w-72 bg-white">
+                            <div class="px-6 py-4">
+                                <div class="font-bold">Outlet Terlaris</div>
+                                <hr>
+                                <div class="grid gap-3 lg:cols-1 md:cols-1 p-4 px-6">
+                                    <div class="col-span-2 flex flex-auto bg-white rounded items-center">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <td scope="col" class="px-1 text-center uppercase tracking-wider">
+                                                        Nama Otlet
+                                                    </td>
+                                                    <td scope="col" class="px-4 text-center uppercase tracking-wider">
+                                                        Pendapatan</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="col"
+                                                        class="px-3 text-left text-black uppercase tracking-wider">Toko
+                                                        ABC
+                                                    </td>
+                                                    <td scope="col" class="text-right">
+                                                        <button
+                                                            class="my-2 bg-sky-500 px-4 py-2 rounded-lg text-white mx-auto hover:bg-sky-600 active:bg-sky-700">Rp
+                                                            20.000.000</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- 3 tabel -->
+                <div>
+                    <!-- table 1 -->
+                    <div class="flex flex-col bg-white justify-between my-3 mx-6 rounded-lg text-sm py-3 w-96">
+                        <div class="text-gray-800 text-sm">
+                            <div class="px-3 py-2 flex items-center">
+                                <h1 class="font-bold text-gray-800 text-2xl">Jumlah Outlet</h1>
+                            </div>
+                            <hr class="my-2">
+
+                            <div class="col-span-2 flex flex-auto bg-white rounded items-center mt-3">
+
+                                <table class="table-auto">
+                                    <thead>
+                                        <tr>
+                                            <td scope="col" class="px-10 text-center tracking-wider">No</td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td scope="col" class="px-10 text-left tracking-wider">1
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td scope="col" class="px-10 text-left tracking-wider">2
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" class="px-10 text-left tracking-wider">3
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td scope="col" class="px-10 text-left tracking-wider">4
+                                            </td>
+
+                                        </tr>
+
+                                    </thead>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- table 2 -->
+                    <div class="flex flex-col bg-white justify-between my-3 mx-6 rounded-lg text-sm py-3 w-96">
+                        <div class="text-gray-800 text-sm">
+                            <div class="px-3 py-2 flex items-center">
+                                <h1 class="font-bold text-gray-800 text-2xl">Outlet Terlaris</h1>
+                            </div>
+                            <hr class="my-2">
+
+                            <div class="col-span-2 flex flex-auto bg-white rounded items-center mt-3">
+                                <table class="table-auto">
+                                    <tbody>
+                                        <thead>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider">Nama Otlet</td>
+                                                <td scope="col" class="px-26 text-right tracking-wider">Pendapatan</td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider"><span
+                                                        class="font-semibold">Toko ABC</span>
+                                                    <div>Bandung</div>
+                                                </td>
+                                                <td scope="col" class="px-26 text-right">
+                                                    <button
+                                                        class="my-2 bg-gray-200 px-4 py-2 rounded-lg text-gray-600 mx-auto text-right hover:bg-sky-500">Rp.
+                                                        20.000.000</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider"><span
+                                                        class="font-semibold">Toko ABC</span>
+                                                    <div>Bandung</div>
+                                                </td>
+                                                <td scope="col" class="px-26 text-right">
+                                                    <button
+                                                        class="my-2 bg-gray-200 px-4 py-2 rounded-lg text-gray-600 mx-auto text-right hover:bg-sky-500">Rp.
+                                                        20.000.000</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider"><span
+                                                        class="font-semibold">Toko ABC</span>
+                                                    <div>Bandung</div>
+                                                </td>
+                                                <td scope="col" class="px-26 text-right">
+                                                    <button
+                                                        class="my-2 bg-gray-200 px-4 py-2 rounded-lg text-gray-600 mx-auto text-right hover:bg-sky-500">Rp.
+                                                        20.000.000</button>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- table 3 -->
+                    <div class="flex flex-col bg-white justify-between my-3 mx-6 rounded-lg text-sm py-3 w-96">
+                        <div class="text-gray-800 text-sm">
+                            <div class="px-3 py-2 flex items-center">
+                                <h1 class="font-bold text-gray-800 text-2xl">Outlet Baru</h1>
+                            </div>
+                            <hr class="my-2">
+
+                            <div class="col-span-2 flex flex-auto bg-white rounded items-center mt-3">
+                                <table class="table-auto">
+                                    <tbody>
+                                        <thead>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider">Nama Otlet</td>
+                                                <td scope="col" class="px-26 text-right tracking-wider">Tanggal Daftar
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider"><span
+                                                        class="font-semibold">Toko ABC</span>
+                                                    <div>Bandung</div>
+                                                </td>
+                                                <td scope="col" class="px-26 text-right">
+                                                    <button
+                                                        class="my-2 bg-gray-200 px-4 py-2 rounded-lg text-gray-600 mx-auto text-right hover:bg-sky-500">02
+                                                        Juni 2022</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider"><span
+                                                        class="font-semibold">Toko ABC</span>
+                                                    <div>Bandung</div>
+                                                </td>
+                                                <td scope="col" class="px-26 text-right">
+                                                    <button
+                                                        class="my-2 bg-gray-200 px-4 py-2 rounded-lg text-gray-600 mx-auto text-right hover:bg-sky-500">02
+                                                        Juni 2022</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td scope="col" class="px-3 text-left tracking-wider"><span
+                                                        class="font-semibold">Toko ABC</span>
+                                                    <div>Bandung</div>
+                                                </td>
+                                                <td scope="col" class="px-26 text-right">
+                                                    <button
+                                                        class="my-2 bg-gray-200 px-4 py-2 rounded-lg text-gray-600 mx-auto text-right hover:bg-sky-500">02
+                                                        Juni 2022</button>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- table 4 -->
+                <div class="flex flex-col bg-white justify-between my-3 mx-6 rounded-lg text-sm py-3">
+                    <div class="text-gray-800 text-sm">
+                        <div class="px-3 py-2 flex items-center">
+                            <h1 class="font-bold text-gray-800 text-2xl">List Outlet</h1>
+                        </div>
+                        <hr class="my-2">
+                        <div class="flex flex-row px-4 justify-between">
+                            <div class="bg-white
+                         w-40 my-3 mx-2 rounded-lg text-sm px-3 py-2 hover:bg-white justify-between
+                           " onclick="dropdownLoc()" style="border: 1px solid rgb(109, 101, 101);">
+                                <div class="flex flex-row space-x-3">
+                                    <span class="bg-transparent rounded items-center">Semua Lokasi</span>
+
+                                    <span class="text-sm" id="arrowLoc">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <div class="text-left text-sm mx-auto" id="submenuLoc">
+                                    <div class="cursor pointer p-2 hover:bg-sky-500 rounded-md mt-1">
+                                        <span class="text-sm ml-4">Bandung</span>
+                                    </div>
+                                    <div class="cursor pointer p-2 hover:bg-sky-500 rounded-md mt-1">
+                                        <span class="text-sm ml-4">Jakarta</span>
+                                    </div>
+                                    <div class="cursor pointer p-2 hover:bg-sky-500 rounded-md mt-1">
+                                        <span class="text-sm ml-4">Solo</span>
+                                    </div>
+                                    <div class="cursor pointer p-2 hover:bg-sky-500 rounded-md mt-1">
+                                        <span class="text-sm ml-4">Semarang</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button
+                                class="relative flex justify-center items-center bg-red-600 border focus:outline-none shadow text-gray-500 rounded focus:ring ring-green-800 group">
+                                <p class="px-4">coba pilih</p>
+                                <span class="border-1 p-2 hover:bg-yellow-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chevron-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                                    </svg>
+                                </span>
+                                <div
+                                    class="absolute hidden group-focus:block top-full min-w-full w-max bg-orange-800 mt-1 rounded">
+                                    <ul class="text left border rounded">
+                                        <li class="px-4 py-1 hover:bg-gray-800">MENU 1</li>
+                                        <li class="px-4 py-1 hover:bg-gray-800">MENU 1</li>
+                                        <li class="px-4 py-1 hover:bg-gray-800">MENU 1</li>
+                                    </ul>
+                                </div>
+
+                            </button>
+                            <div class="bg-gray-200
+                         w-60 my-3 mx-2 rounded-lg text-sm px-3 py-2 hover:bg-white
+                           " style="border: 1px solid rgb(226, 219, 219);">
+                                <div class="flex flex-row space-x-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-search" viewBox="0 0 16 16">
+                                        <path
+                                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                    <input type="text" name="" id=""
+                                        class="bg-transparent rounded items-center focus:outline-none"
+                                        placeholder="Search                      ctrl+k">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-2 flex flex-auto bg-white rounded items-center mt-3">
+
+                            <table class="table-auto">
+                                <thead>
+                                    <tr>
+                                        <td scope="col" class="px-10 text-center tracking-wider">No</td>
+                                        <td scope="col" class="px-10 text-center tracking-wider">Nama Outlet</td>
+                                        <td scope="col" class="px-10 text-center tracking-wider">Nama Pemilik</td>
+                                        <td scope="col" class="px-10 text-center tracking-wider">Jumlah Transaksi
+                                        </td>
+                                        <td scope="col" class="px-10 text-center tracking-wider">Lokasi</td>
+                                        <td scope="col" class="px-10 text-center tracking-wider">Tanggal Daftar
+                                        </td>
+                                        <td scope="col" class="px-10 text-center tracking-wider">Pendapatan</td>
+                                        <td scope="col" class="px-10 text-right tracking-wider">Action</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="col" class="px-10 text-left tracking-wider">1
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Toko 1</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Flayd Miles</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            23
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Bandung</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            2 Juni 2022
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Rp. 20.000.000</td>
+                                        <td class="text-center">
+                                            <button
+                                                class="my-2 bg-sky-600 px-4 py-2 rounded-lg text-white mx-auto hover:bg-sky-500">Rincian</button>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td scope="col" class="px-10 text-left tracking-wider">2
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Toko 2</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Robert Fox</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            12
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Jakarta</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            2 Juni 2022
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Rp. 20.000.000</td>
+                                        <td class="text-center">
+                                            <button class="my-2 bg-sky-600 px-4 py-2 rounded-lg text-white mx-auto
+                                                hover:bg-sky-500">Rincian</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" class="px-10 text-left tracking-wider">3
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Toko 3</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Courtney Henry</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            31
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Solo</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            2 Juni 2022
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Rp. 20.000.000</td>
+                                        <td class="text-center">
+                                            <button class="my-2 bg-sky-600 px-4 py-2 rounded-lg text-white mx-auto
+                                                hover:bg-sky-500">Rincian</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" class="px-10 text-left tracking-wider">4
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Toko 4</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Arlene McCoy</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            24
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Semarang</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            2 Juni 2022
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Rp. 20.000.000</td>
+                                        <td class="text-center">
+                                            <button class="my-2 bg-sky-600 px-4 py-2 rounded-lg text-white mx-auto
+                                                hover:bg-sky-500">Rincian</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="col" class="px-10 text-left tracking-wider">5
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Toko 5</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Anneta Black</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            12
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Bandung</td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            2 Juni 2022
+                                        </td>
+                                        <td scope="col" class="px-10 text-left tracking-wider">
+                                            Rp. 20.000.000</td>
+                                        <td class="text-center">
+                                            <button class="my-2 bg-sky-600 px-4 py-2 rounded-lg text-white mx-auto
+                                                hover:bg-sky-500">Rincian</button>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function dropdown() {
+            document.querySelector('#submenu').classList.toggle('hidden');
+            document.querySelector('#arrow').classList.toggle('rotate-180')
+        }
+        dropdown()
+
+        function dropdown2() {
+
+            document.querySelector('#submenu2').classList.toggle('hidden');
+            document.querySelector('#arrow2').classList.toggle('rotate-180')
+        }
+        dropdown2()
+
+        function dropdown3() {
+
+            document.querySelector('#submenu3').classList.toggle('hidden');
+            document.querySelector('#arrow3').classList.toggle('rotate-180')
+        }
+        dropdown3()
+
+        function dropdown4() {
+
+            document.querySelector('#submenu4').classList.toggle('hidden');
+            document.querySelector('#arrow4').classList.toggle('rotate-180')
+        }
+        dropdown4()
+
+        function dropdown5() {
+
+            document.querySelector('#submenu5').classList.toggle('hidden');
+            document.querySelector('#arrow5').classList.toggle('rotate-180')
+        }
+        dropdown5()
+
+        function dropdown6() {
+
+            document.querySelector('#submenu6').classList.toggle('hidden');
+            document.querySelector('#arrow6').classList.toggle('rotate-180')
+        }
+        dropdown6()
+
+        function dropdownLoc() {
+            document.querySelector('#submenuLoc').classList.toggle('hidden');
+            document.querySelector('#arrowLoc').classList.toggle('rotate-180')
+        }
+        dropdownLoc()
+
+        function open() {
+            document.querySelector('.sidebar').classList.toggle('hidden');
+        }
+        // open()
+    </script>
+
+</body>
+
+</html>
